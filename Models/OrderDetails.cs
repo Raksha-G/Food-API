@@ -19,8 +19,9 @@ namespace FoodAppWebApi.Models
         public int Price { get; set; }
 
         public DateTime OrderTime { get; set; }
+        public string Status { get; set; }
 
-       public OrderDetails(int inVoiceNo, string userName, int restaurantId, string foodItem, int quantity, int price, DateTime orderTime)
+       public OrderDetails(int inVoiceNo, string userName, int restaurantId, string foodItem, int quantity, int price, DateTime orderTime,string status)
         {
             InVoiceNo = inVoiceNo;
             UserName = userName;
@@ -29,6 +30,7 @@ namespace FoodAppWebApi.Models
             Quantity = quantity;
             Price = price;
             OrderTime = orderTime;
+            Status = status;
         }
 
         public OrderDetails(int inVoiceNo, string userName, int restaurantId, string foodItem, int quantity, int price)
@@ -42,7 +44,7 @@ namespace FoodAppWebApi.Models
             
         }
 
-        public OrderDetails(int inVoiceNo, string userName, string foodItem, int quantity, int price, DateTime orderTime)
+        public OrderDetails(int inVoiceNo, string userName, string foodItem, int quantity, int price, DateTime orderTime,string status)
         {
             InVoiceNo = inVoiceNo;
             UserName = userName;
@@ -51,6 +53,7 @@ namespace FoodAppWebApi.Models
             Quantity = quantity;
             Price = price;
             OrderTime = orderTime;
+            Status=status;
 
         }
     }

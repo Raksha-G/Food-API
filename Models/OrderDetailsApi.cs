@@ -9,5 +9,6 @@
         public int Price { get; set; }
         public int RestaurantId { get; set; }
         public DateTime OrderTime { get; set; }
+        public string Status { get; set; }
     }
 }

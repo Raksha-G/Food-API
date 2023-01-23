@@ -14,5 +14,6 @@
         public string ExpMonth { get; set; }
         public string ExpYear { get; set; }
         public int CVV { get; set; }
+        public string status { get; set; }
     }
 }
