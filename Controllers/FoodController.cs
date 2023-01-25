@@ -34,6 +34,30 @@ namespace FoodAppWebApi.Controllers
         }
 
 
+        [HttpGet]
+        [CustomAttribute.TokenValidator]
+        public IActionResult GetAllVegRestaurants()
+        {
+            SqlConnection conn = new SqlConnection("Data Source = fooddeliverydatabase.ctzhubalbjxo.ap-south-1.rds.amazonaws.com,1433 ; Initial Catalog = FoodDeliveryApplication ; Integrated Security=False; User ID=admin; Password=surya1997; ");
+            SqlCommand cmd = new SqlCommand("select * from Restaurants where Restaurant_Id in (SELECT distinct Restaurant_Id FROM Food where Restaurant_Id NOT IN(select Restaurant_Id from Food where FoodType = 'Non Veg' ))", conn);
+            conn.Open();
+            SqlDataReader sr = cmd.ExecuteReader();
+            List<Restaurants> res = new List<Restaurants>();
+            while (sr.Read())
+            {
+                Restaurants restaurant = new Restaurants((int)sr["Restaurant_Id"], sr["Restaurant_Name"].ToString(), sr["Restaurant_Image"].ToString());
+                res.Add(restaurant);
+            }
+            if (res.Count() == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(res);
+
+        }
+
+
         [HttpGet("{Id}")]
         [CustomAttribute.TokenValidator]
         public IActionResult GetRestaurantMenuById(int Id)

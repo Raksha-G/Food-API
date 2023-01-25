@@ -3744,11 +3744,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\raksha_ganyarpawar\\source\\repos\\FoodDeliveryApplication\\FoodAppWebApi\\FoodAppWebApi.csproj",
+      "projectUniqueName": "C:\\Users\\raksha_ganyarpawar\\source\\repos\\JustEat\\Food-API\\FoodAppWebApi.csproj",
       "projectName": "FoodAppWebApi",
-      "projectPath": "C:\\Users\\raksha_ganyarpawar\\source\\repos\\FoodDeliveryApplication\\FoodAppWebApi\\FoodAppWebApi.csproj",
+      "projectPath": "C:\\Users\\raksha_ganyarpawar\\source\\repos\\JustEat\\Food-API\\FoodAppWebApi.csproj",
       "packagesPath": "C:\\Users\\raksha_ganyarpawar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\raksha_ganyarpawar\\source\\repos\\FoodDeliveryApplication\\FoodAppWebApi\\obj\\",
+      "outputPath": "C:\\Users\\raksha_ganyarpawar\\source\\repos\\JustEat\\Food-API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\raksha_ganyarpawar\\AppData\\Roaming\\NuGet\\NuGet.Config",
