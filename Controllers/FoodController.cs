@@ -89,6 +89,30 @@ namespace FoodAppWebApi.Controllers
 
         }
 
+        [HttpGet]
+        [CustomAttribute.TokenValidator]
+        public IActionResult GetRestaurantByCuisine(string cuisine)
+        {
+            SqlConnection conn = new SqlConnection("Data Source = fooddeliverydatabase.ctzhubalbjxo.ap-south-1.rds.amazonaws.com,1433 ; Initial Catalog = FoodDeliveryApplication ; Integrated Security=False; User ID=admin; Password=surya1997; ");
+            SqlCommand cmd = new SqlCommand(String.Format("select * from Restaurants where Cuisine = '{0}'",cuisine), conn);
+            conn.Open();
+            SqlDataReader sr = cmd.ExecuteReader();
+            List<Restaurants> res = new List<Restaurants>();
+            while (sr.Read())
+            {
+                Restaurants restaurant = new Restaurants((int)sr["Restaurant_Id"], sr["Restaurant_Name"].ToString(), sr["Restaurant_Image"].ToString(), sr["Cuisine"].ToString());
+                res.Add(restaurant);
+            }
+            if (res.Count() == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(res);
+
+        }
+
+
         [HttpPost]
         [CustomAttribute.TokenValidator]
         public IActionResult AddToCart([FromBody] CartItems cart)
