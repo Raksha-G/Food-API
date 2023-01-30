@@ -119,12 +119,13 @@ namespace FoodAppWebApi.Controllers
         {
 
             SqlConnection conn = new SqlConnection("Data Source = fooddeliverydatabase.ctzhubalbjxo.ap-south-1.rds.amazonaws.com,1433 ; Initial Catalog = FoodDeliveryApplication ; Integrated Security=False; User ID=admin; Password=surya1997;");
-            SqlCommand cmd = new SqlCommand(String.Format("insert into AddItemToCart values('{0}','{1}','{2}','{3}','{4}')",
+            SqlCommand cmd = new SqlCommand(String.Format("insert into AddItemToCart values('{0}','{1}','{2}','{3}','{4}','{5}')",
                                                           cart.UserName,
                                                           cart.FoodItem,
                                                           cart.Quantity,
                                                           cart.RestaurantId,
-                                                          cart.Price), conn);
+                                                          cart.Price,
+                                                          cart.FoodId), conn);
             conn.Open();
             int res = cmd.ExecuteNonQuery();
             conn.Close();
@@ -168,7 +169,7 @@ namespace FoodAppWebApi.Controllers
         public IActionResult GetCartByUserName(string UserName)
         {
             SqlConnection conn = new SqlConnection("Data Source = fooddeliverydatabase.ctzhubalbjxo.ap-south-1.rds.amazonaws.com,1433 ; Initial Catalog = FoodDeliveryApplication ; Integrated Security=False; User ID=admin; Password=surya1997;");
-            SqlCommand cmd = new SqlCommand(String.Format("select A.FoodItem, A.Quantity,A.ItemNo, F.Food_Image,F.Price,F.Id,F.Restaurant_Id from AddItemToCart A inner join Food F on F.Food_Item = A.FoodItem where A.UserName = '{0}'", UserName), conn);
+            SqlCommand cmd = new SqlCommand(String.Format("select A.FoodItem, A.Quantity,A.ItemNo, F.Food_Image,F.Price,F.Id,F.Restaurant_Id from AddItemToCart A inner join Food F on F.Id = A.FoodId where A.UserName = '{0}'", UserName), conn);
             conn.Open();
             SqlDataReader sr = cmd.ExecuteReader();
 
@@ -225,7 +226,7 @@ namespace FoodAppWebApi.Controllers
 
             if (Id == 1)
             {
-                SqlCommand cmd = new SqlCommand(String.Format("Select * from PlacedOrderDetail where UserName = '{0}'", UserName), conn);
+                SqlCommand cmd = new SqlCommand(String.Format("Select * from PlacedOrderDetail where UserName = '{0}' order by OrderTime desc", UserName), conn);
                 conn.Open();
                 SqlDataReader sr = cmd.ExecuteReader();
 
@@ -243,7 +244,7 @@ namespace FoodAppWebApi.Controllers
 
             if (Id == 3)
             {
-                SqlCommand cmd1 = new SqlCommand(String.Format("Select * from CompletedOrder where UserName = '{0}'", UserName), conn);
+                SqlCommand cmd1 = new SqlCommand(String.Format("Select * from CompletedOrder where UserName = '{0}' order by OrderCompletionTime desc", UserName), conn);
                 conn.Open();
                 SqlDataReader sr1 = cmd1.ExecuteReader();
                 while (sr1.Read())
