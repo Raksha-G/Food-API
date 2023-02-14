@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\raksha_ganyarpawar\\source\\repos\\JustEat\\Food-API\\FoodAppWebApi.csproj": {}
+    "F:\\Final Project\\FoodAppWebApi\\FoodAppWebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\raksha_ganyarpawar\\source\\repos\\JustEat\\Food-API\\FoodAppWebApi.csproj": {
+    "F:\\Final Project\\FoodAppWebApi\\FoodAppWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\raksha_ganyarpawar\\source\\repos\\JustEat\\Food-API\\FoodAppWebApi.csproj",
+        "projectUniqueName": "F:\\Final Project\\FoodAppWebApi\\FoodAppWebApi.csproj",
         "projectName": "FoodAppWebApi",
-        "projectPath": "C:\\Users\\raksha_ganyarpawar\\source\\repos\\JustEat\\Food-API\\FoodAppWebApi.csproj",
-        "packagesPath": "C:\\Users\\raksha_ganyarpawar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\raksha_ganyarpawar\\source\\repos\\JustEat\\Food-API\\obj\\",
+        "projectPath": "F:\\Final Project\\FoodAppWebApi\\FoodAppWebApi.csproj",
+        "packagesPath": "C:\\Users\\vempadapu_prasanth\\.nuget\\packages\\",
+        "outputPath": "F:\\Final Project\\FoodAppWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\raksha_ganyarpawar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vempadapu_prasanth\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
