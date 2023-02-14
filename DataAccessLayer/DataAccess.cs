@@ -206,6 +206,35 @@ namespace FoodAppWebApi.DataAccessLayer
 
         }
 
+
+
+      
+        public virtual int OrderDetails(List<OrderDetailsApi> order)
+        {
+            SqlConnection conn = new SqlConnection("Data Source = fooddeliverydatabase.ctzhubalbjxo.ap-south-1.rds.amazonaws.com,1433 ; Initial Catalog = FoodDeliveryApplication ; Integrated Security=False; User ID=admin; Password=surya1997;");
+            int res = 0;
+            foreach (var obj in order)
+            {
+                SqlCommand sqlCommand = new SqlCommand(String.Format(
+                    "insert into PlacedOrderDetail values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
+                    obj.InVoiceNo,
+                    obj.UserName,
+                    obj.RestaurantId,
+                    obj.FoodItem,
+                    obj.Quantity,
+                    obj.Price,
+                    obj.OrderTime,
+                    obj.Status), conn);
+
+                conn.Open();
+                res = res + sqlCommand.ExecuteNonQuery();
+                conn.Close();
+            }
+            return res;
+        }
+
+
+
         public virtual List<Menu> Search(string FoodItem)
         {
             SqlConnection conn = new SqlConnection("Data Source = fooddeliverydatabase.ctzhubalbjxo.ap-south-1.rds.amazonaws.com,1433 ; Initial Catalog = FoodDeliveryApplication ; Integrated Security=False; User ID=admin; Password=surya1997;");
@@ -230,31 +259,6 @@ namespace FoodAppWebApi.DataAccessLayer
                 list.Add(menu);
             }
             return list;
-        }
-
-
-        public virtual int OrderDetails(List<OrderDetailsApi> order)
-        {
-            SqlConnection conn = new SqlConnection("Data Source = fooddeliverydatabase.ctzhubalbjxo.ap-south-1.rds.amazonaws.com,1433 ; Initial Catalog = FoodDeliveryApplication ; Integrated Security=False; User ID=admin; Password=surya1997;");
-            int res = 0;
-            foreach (var obj in order)
-            {
-                SqlCommand sqlCommand = new SqlCommand(String.Format(
-                    "insert into PlacedOrderDetail values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
-                    obj.InVoiceNo,
-                    obj.UserName,
-                    obj.RestaurantId,
-                    obj.FoodItem,
-                    obj.Quantity,
-                    obj.Price,
-                    obj.OrderTime,
-                    obj.Status), conn);
-
-                conn.Open();
-                res = res + sqlCommand.ExecuteNonQuery();
-                conn.Close();
-            }
-            return res;
         }
 
 
