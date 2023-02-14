@@ -206,6 +206,7 @@ namespace FoodAppWebApi.Controllers
             }
 */
             List<Cart> cart = new List<Cart>();
+            cart = _dl.GetCartByUserName(UserName);
             if (cart.Count <= 0)
             {
                 return NotFound("Cart is Empty");
